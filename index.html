@@ -20,6 +20,10 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-height -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>David's Portfolio</title>
+
+        <?php header("content-type: text/plain; charset=utf-8"); ?>
+        Headers received:
+
     </head>
 
     <body>
@@ -34,9 +38,19 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-height -->
         <img src="./assets/images/birthday-invite.png" height="200"/>
         <hr/>
 
-        <h2>TEST</h2>
-
         <a href="./public/about.html">About me</a> 
         <a href="./public/contact.html">Contact me</a>
+
+
+        <?php
+        foreach ($_SERVER as $k => $v)
+        {
+            if( substr($k, 0, 5) == 'HTTP_')
+            {
+                print "\n". $k. "\t". $v;
+            }
+        }
+        ?>
+        
     </body>
 </html>
